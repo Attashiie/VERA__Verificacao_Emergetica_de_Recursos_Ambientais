@@ -1,0 +1,80 @@
+
+3 PASSOS PARA COMEÇAR
+═══════════════════════════
+
+PASSO 1 : Inicie o servidor Python
+──────────────────────────────────────
+
+python app.py
+
+Você verá:
+    ================================================================================
+    VERA API — Servidor Flask iniciado
+    ================================================================================
+    
+    Acesse em: http://localhost:5000
+    
+    8 endpoints disponíveis:
+    - GET  /                      Status da API
+    - GET  /api/status            Status detalhado
+    - POST /api/calcular          Calcula emergia ← PRINCIPAL
+    - GET  /api/uevs              Lista todas as UEVs
+    - POST /api/uevs/buscar       Busca UEV específica
+    - POST /api/salvar            Salva projeto
+    - GET  /api/projetos          Lista projetos em memória
+    - GET  /api/projeto/<nome>    Carrega projeto específico
+    - POST /api/validar-matriz    Valida matriz A
+    
+    Para parar: Ctrl+C
+    ================================================================================
+
+
+PASSO 2 : Abra o HTML no navegador
+─────────────────────────────────────
+
+Clique 2x no arquivo para abrir no navegador
+
+OU
+
+Arraste o arquivo para a barra de endereço do navegador
+
+
+TESTE AGORA
+═══════════════
+
+1. Clique em "Novo Projeto"
+2. Preencha:
+   - Nome: "Teste"
+   - Número de processos: 3
+   - Nomes dos processos: qualquer coisa
+   - Matriz A: valores entre 0 e 1
+   - Vetor R: valores > 0
+   - UEVs: valores > 0
+
+3. Clique em "Calcular Emergia"
+
+ARQUITETURA
+════════════════
+
+┌──────────────────────┐
+│  Navegador (HTML)    │
+│  - Interface visual  │
+│  - Formulários       │
+│  - Gráficos          │
+└──────────┬───────────┘
+           │ HTTP
+           ↓
+┌──────────────────────┐
+│ Flask API (Python)   │
+│ localhost:5000       │
+│ - 8 endpoints        │
+│ - Validação          │
+└──────────┬───────────┘
+           │
+           ↓
+┌──────────────────────┐
+│  Cálculos (Python)   │
+│  - vera_calculator   │
+│  - uev_database      │
+│  - Matrizes NumPy    │
+└──────────────────────┘
